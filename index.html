@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#ff5fa2">
+<meta name="mobile-web-app-capable" content="yes">
+
+<title>Selamatt harii Valentine sayang</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
+
+body{
+  background:linear-gradient(135deg,#ff9aa2,#ffb7ce,#ffcce6);
+  min-height:100vh;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* FLOWERS */
+.flower{
+  position:fixed;
+  font-size:40px;
+  animation:float 6s ease-in-out infinite;
+}
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-20px);}
+}
+
+/* HEART RAIN */
+.heartFall{
+  position:fixed;
+  font-size:16px;
+  animation:fall linear infinite;
+  opacity:.7;
+}
+@keyframes fall{
+  0%{transform:translateY(-10px);}
+  100%{transform:translateY(110vh);}
+}
+
+/* MAIN CARD */
+.card{
+  background:rgba(255,255,255,.15);
+  backdrop-filter:blur(18px);
+  padding:18px;
+  border-radius:18px;
+  box-shadow:0 0 20px rgba(255,0,120,.6);
+  width:90%;
+  max-width:360px;
+  margin:100px auto 20px auto;
+  text-align:center;
+}
+
+h1{font-size:20px;}
+p{font-size:13px;margin-top:6px;line-height:1.5;}
+
+button{
+  margin-top:10px;
+  padding:9px 16px;
+  border:none;
+  border-radius:18px;
+  background:#ff2f7d;
+  color:white;
+  font-size:13px;
+  cursor:pointer;
+}
+button:hover{background:#ff005d}
+
+/* LOVE LETTER */
+.letter{
+  position:fixed;
+  bottom:-120%;
+  left:50%;
+  transform:translateX(-50%);
+  background:white;
+  color:#ff2f7d;
+  width:90%;
+  max-width:380px;
+  padding:18px;
+  border-radius:18px;
+  box-shadow:0 0 30px rgba(255,0,120,.6);
+  transition:.9s;
+  z-index:99;
+}
+.letter.open{bottom:20px;}
+.close{text-align:center;font-size:12px;margin-top:10px;cursor:pointer}
+
+/* GAME */
+.gameBox{
+  background:rgba(255,255,255,.2);
+  padding:15px;
+  border-radius:15px;
+  margin-top:10px;
+}
+
+/* CATCH HEART */
+.catchHeart{
+  position:absolute;
+  font-size:30px;
+  cursor:pointer;
+}
+
+/* BOSS */
+#boss{
+  font-size:80px;
+  cursor:pointer;
+}
+
+/* STORY SCROLL */
+.story{
+  padding:20px;
+}
+.story img{
+  width:100%;
+  border-radius:15px;
+  margin-top:10px;
+}
+
+/* LOGIN FORM */
+input,textarea{
+  width:100%;
+  padding:8px;
+  border:none;
+  border-radius:10px;
+  margin-top:6px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- FLOWERS -->
+<div class="flower" style="top:50px;left:40px;">🌸</div>
+<div class="flower" style="top:200px;right:80px;">🌷</div>
+<div class="flower" style="bottom:150px;left:60px;">🌹</div>
+<div class="flower" style="bottom:250px;right:100px;">💐</div>
+
+<!-- MAIN CARD -->
+<div class="card">
+<h1>💖 Happy Valentine <span id="name">Sayang</span> 💖</h1>
+<p>Makasii eee sayanggg dah support abangg 🌸</p>
+
+<button onclick="openLetter()">Buka Surat Cinta 💌</button>
+<button onclick="showGame()">Pencet game ini</button>
+<button onclick="showLogin()">Isi Data Imaa 💕</button>
+<button onclick="showWish()">Tulis Keinginan Imaa ✨</button>
+</div>
+
+<!-- LOVE LETTER -->
+<div class="letter" id="letter">
+<h2>Untuk Imaa Tersayangg ❤️</h2>
+<p>
+Makasii eee sayanggg untukk selamoo nii dahh buatt abangg bahagiaaa atauu punn ngajakk abangg jalann lahh belii es krimm teraktirr abangg dll meski punn banyakk cobaan daii ngehadapp emosii abangg, egoo abangg, modd abangg, sampaii abangg ajakk imaa udahan waktuu ituu, tapii imaa balekk ingatt kann abangg imaa bilangg ituu abangg jadii sadoo bahwaa awakk kenall tu tak kejapp, susah nak mempertahan kan hubungan selamoo ituu dan imaa cakapp itupun perdana imaa kenalkann abangg kee ortuu atauu keluargaa imaa danm jugoo abangg mintaa maaff kaloo abangg banyakk salahh daii bentakk imaa abangg takk sengajoo imaa seriuss abangg takk bengakk doo pass abangg tebentakk imaa abangg jugoo sadoo abangg dahh buat hatii imaa lukoo abangg mintaaa maaff ee untukk selamo niii makasihh atass semuooo yangg imaa kasii, imaa dahh nimoo abangg apoo adooo nyoo maaf jugoo abangg takk bisa kek cowoo lainn bisaa kasii cewee nyoo inii lahh ituu lahh, abangg cumoo bisaa ngasii inii samoo adoo sesuatuu jugoo nantii buatt imaa, dan jugo kalo abangg adoo ngasii apoo apoo katt imaa mungkinn ituu kadang" tak kek orangg lainn maaff eee imaaa... abangg akann tetap sayangg samoo imaa I love U sayanggg💕
+</p>
+<div class="close" onclick="closeLetter()">TUTUP SURAT</div>
+</div>
+
+<!-- GAME -->
+<div class="card gameBox" id="game" style="display:none">
+<h2>🎮 Game Burik</h2>
+
+<!-- CLICK GAME -->
+<p>Klik hati secepat mungkin (15 detik)</p>
+<h2 id="score">0</h2>
+<div style="font-size:40px" onclick="addClick()">❤️</div>
+<button onclick="startClickGame()">Start</button>
+<p id="clickResult"></p>
+
+<hr>
+
+<!-- CATCH HEART -->
+<p>Tangkap hati yang muncul di atas</p>
+<button onclick="startCatch()">Start Tangkap</button>
+<p id="catchScore">0</p>
+
+<hr>
+
+<!-- BOSS -->
+<p>Battle Valentine</p>
+<h1 id="boss">💘</h1>
+<p>HP Boss: <span id="score abangg">110</span></p>
+</div>
+
+<!-- LOGIN -->
+<div class="card" id="login" style="display:none">
+<h2>💕 Data Kamu</h2>
+<input id="fullname" placeholder="Nama Lengkap">
+<input id="birthdate" type="date">
+<input id="favFood" placeholder="Makanan Kesukaan">
+<input id="favDrink" placeholder="Minuman Kesukaan">
+<input id="favColor" placeholder="Warna Kesukaan">
+<button onclick="saveProfile()">Simpan</button>
+<p id="profileResult"></p>
+</div>
+
+<!-- WISH TO WHATSAPP -->
+<div class="card" id="wish" style="display:none">
+<h2>✨ keinginan imaa</h2>
+<textarea id="wishText" placeholder="Tulis keinginan imaaa..."></textarea>
+<button onclick="sendWish()">Kirim ke WhatsApp</button>
+</div>
+
+<!-- STORY SCROLL -->
+<div class="story">
+<h2>💞 Cerita Kita awal pacaran soswittt tauu hihi</h2>
+<p>Hari pertamo awak kenal abang minta no ima di pm nabilaa abang mulai cet modal cet mintaa pap samo imaa tuko topik saling kenal dll dah tu bagi" pap buat post pas tu awakk belum beranii call atauu vc beranii punn imaa tak bisa teruss" atau pun lelamoo soalnyoo ituu hp ortuu imaa.</p>
+<img src="https://files.catbox.moe/670mju.jpg">
+<p>Pas awakk agakk lamoo pacarann awakk janjii nak 1 sekolah atau sekolah samo" tapi ujung" nyoo bedo awakk pun lost kontak takk lamo punn awakk ketemuu dann yapp awakk punn besatuu cintaa lama berseri kembalii</p>
+<img src="https://files.catbox.moe/cp27y3.jpg">
+<p>Abangg harapp hubungann awakk nii lamoo sampaii apoo ee intinyoo lamoo lahhh kaloo bisaa kek abangg imaa tuu janjii abangg kaloo abangg sempatt mikey yang tidak" ingatt kann abangg eee sayangg abangg nakk hubungan awakk sampai ortuu abangg dann imaaa tauu atau punn ortuu imaa samoo ortuu abangg salingg kenalll okeee abangg janjii abangg akann buat macamm tuu ❤️</p>
+<img src="https://files.catbox.moe/6z43qg.jpg">
+</div>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+<source src="https://files.catbox.moe/tf7sfx.mp3" type="audio/mp3">
+</audio>
+
+<script>
+// CUSTOM NAME
+let customName="Imaaa"; // GANTI NAMA CEWEK
+document.getElementById("name").innerText=customName;
+
+// HEART RAIN
+for(let i=0;i<70;i++){
+ let h=document.createElement("div");
+ h.className="heartFall";
+ h.innerHTML="❤️";
+ h.style.left=Math.random()*100+"vw";
+ h.style.animationDuration=(3+Math.random()*6)+"s";
+ document.body.appendChild(h);
+}
+
+// AUTO MUSIC
+document.body.addEventListener("click",()=>{document.getElementById("music").play();},{once:true});
+
+// LETTER
+function openLetter(){letter.classList.add("open");}
+function closeLetter(){letter.classList.remove("open");}
+
+// SHOW MENU
+function showGame(){game.style.display="block";}
+function showLogin(){login.style.display="block";}
+function showWish(){wish.style.display="block";}
+
+// GAME CLICK
+let score=0,playing=false;
+function addClick(){if(playing){score++;scoreEl.innerText=score;}}
+let scoreEl=document.getElementById("score");
+
+function startClickGame(){
+ score=0;playing=true;
+ scoreEl.innerText=0;
+ setTimeout(()=>{
+  playing=false;
+  if(score<30){
+   clickResult.innerHTML="Kalah 😈 Tantangan: kirim voice note lucu+pap imut dan lucu ke abang hihi!";
+  }else{
+   clickResult.innerHTML="Menang 🥰 nanti abang kasi 6 pap eee";
+  }
+ },15000);
+}
+
+// GAME CATCH HEART
+let catchScore=0;
+function startCatch(){
+ catchScore=0;
+ catchScoreEl.innerText=0;
+ let interval=setInterval(()=>{
+  let h=document.createElement("div");
+  h.className="catchHeart";
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*90+"%";
+  h.style.top=Math.random()*300+"px";
+  h.onclick=()=>{catchScore++;catchScoreEl.innerText=catchScore;h.remove();}
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),1000);
+ },250);
+ setTimeout(()=>clearInterval(interval),10000);
+}
+let catchScoreEl=document.getElementById("catchScore");
+
+// BOSS BATTLE
+let bossHP=50;
+boss.onclick=function(){
+ bossHP--;
+ bossHPSpan.innerText=bossHP;
+ if(bossHP<=0) alert("abang kalah! Imaa menang Valentine 💖");
+}
+let bossHPSpan=document.getElementById("bossHP");
+
+// SAVE PROFILE
+function saveProfile(){
+ let data=`Nama: ${fullname.value}\nTanggal Lahir: ${birthdate.value}\nMakanan: ${favFood.value}\nMinuman: ${favDrink.value}\nWarna: ${favColor.value}`;
+ localStorage.setItem("valentineProfile",data);
+ profileResult.innerText="Data tersimpan 💕";
+}
+
+// SEND WISH TO WHATSAPP
+function sendWish(){
+ let text=encodeURIComponent("Keinginan imaa: "+wishText.value);
+ let nomor="6282169945577"; // GANTI NOMOR KAMU
+ window.open(`https://wa.me/${nomor}?text=${teks}`);
+}
+</script>
+
+</body>
+</html>
